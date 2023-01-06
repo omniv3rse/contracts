@@ -1246,13 +1246,13 @@ contract MagicGold is ERC20, Ownable {
         swapTokensAtAmount = totalSupply * 5 / 10000; // 0.05% swap tokens amount
         maxWallet = totalSupply * 2 / 100; // 2% Max wallet
 
-        rewardsBuyFee = 30;
-        operationsBuyFee = 0;
+        rewardsBuyFee = 10;
+        operationsBuyFee = 20;
         liquidityBuyFee = 20;
         totalBuyFees = rewardsBuyFee + operationsBuyFee + liquidityBuyFee;
         
-        rewardsSellFee = 30;
-        operationsSellFee = 0;
+        rewardsSellFee = 10;
+        operationsSellFee = 20;
         liquiditySellFee = 20;
         totalSellFees = rewardsSellFee + operationsSellFee + liquiditySellFee;
 
