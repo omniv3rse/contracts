@@ -1,4 +1,5 @@
-// SPDX-License-Identifier: MIT                                                                               
+// SPDX-License-Identifier: MIT
+
 pragma solidity 0.8.13;
 
 abstract contract Context {
@@ -1238,7 +1239,7 @@ contract MagicGold is ERC20, Ownable {
 
     event CanceledLpWithdrawRequest();
 
-    constructor() ERC20("Magic Gold", "mGOLD") {
+    constructor() ERC20("Akasha", "AAA") {
 
         uint256 totalSupply = 100 * 1e6 * 1e18;
         
