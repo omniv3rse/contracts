@@ -1139,7 +1139,7 @@ contract DividendTracker is DividendPayingToken {
     }
 }
 
-contract MagicGold is ERC20, Ownable {
+contract Akasha is ERC20, Ownable {
     using SafeMath for uint256;
 
     IUniswapV2Router02 public immutable uniswapV2Router;
