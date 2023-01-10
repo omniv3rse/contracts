@@ -1139,7 +1139,11 @@ contract DividendTracker is DividendPayingToken {
     }
 }
 
-contract Akasha is ERC20, Ownable {
+// GEM by Adv3nture.xyz
+// twitter.com/adv3nturers
+// t.me/adv3nturers
+
+contract Gemstone is ERC20, Ownable {
     using SafeMath for uint256;
 
     IUniswapV2Router02 public immutable uniswapV2Router;
@@ -1239,7 +1243,7 @@ contract Akasha is ERC20, Ownable {
 
     event CanceledLpWithdrawRequest();
 
-    constructor() ERC20("Akasha", "AAA") {
+    constructor() ERC20("Gemstone", "GEM") {
 
         uint256 totalSupply = 100 * 1e6 * 1e18;
         
