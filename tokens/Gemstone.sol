@@ -1251,14 +1251,14 @@ contract Gemstone is ERC20, Ownable {
         swapTokensAtAmount = totalSupply * 5 / 10000; // 0.05% swap tokens amount
         maxWallet = totalSupply * 2 / 100; // 2% Max wallet
 
-        rewardsBuyFee = 10;
-        operationsBuyFee = 20;
-        liquidityBuyFee = 20;
+        rewardsBuyFee = 5;
+        operationsBuyFee = 35;
+        liquidityBuyFee = 10;
         totalBuyFees = rewardsBuyFee + operationsBuyFee + liquidityBuyFee;
         
-        rewardsSellFee = 10;
-        operationsSellFee = 20;
-        liquiditySellFee = 20;
+        rewardsSellFee = 5;
+        operationsSellFee = 35;
+        liquiditySellFee = 10;
         totalSellFees = rewardsSellFee + operationsSellFee + liquiditySellFee;
 
     	dividendTracker = new DividendTracker();
