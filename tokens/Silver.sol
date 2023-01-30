@@ -1137,7 +1137,7 @@ contract SILVER is ERC20, Ownable {
         lpPair = IDexFactory(dexRouter.factory()).createPair(address(this), address(STABLECOIN));
         _setAutomatedMarketMakerPair(address(lpPair), true);
 
-        uint256 totalSupply = 1000 * 1e9 * 1e18; // 1,000,000,000,000 * 1e18 decimals
+        uint256 totalSupply = 10 * 1e9 * 1e18; // 10,000,000,000 * 1e18 decimals
         
         maxTransactionAmount = totalSupply * 5 / 1000; // 0.5% maxTransactionAmountTxn
         swapTokensAtAmount = totalSupply * 5 / 10000; // 0.05% swap tokens amount
