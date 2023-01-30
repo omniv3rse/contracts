@@ -1001,6 +1001,10 @@ contract TokenHandler is Ownable {
     }
 }
 
+// SILVER by Adv3nture.xyz
+// twitter.com/adv3nturers
+// t.me/adv3nturers
+
 contract SILVER is ERC20, Ownable {
     using SafeMath for uint256;
 
@@ -1121,18 +1125,8 @@ contract SILVER is ERC20, Ownable {
         address _dexRouter;
         address stablecoinAddress;
 
-        if(block.chainid == 1){
-            _dexRouter = 0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D; // ETH Router
-            stablecoinAddress = 0x6967299e9F3d5312740Aa61dEe6E9ea658958e31; // USDC ETH
-        } else if(block.chainid == 5){
-            _dexRouter = 0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D; // Goerli Router
-            stablecoinAddress = 0x2f3A40A3db8a7e3D09B0adfEfbCe4f6F81927557; // Goerli USDC
-        } else if(block.chainid == 42161){
-            stablecoinAddress  = 0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f; // BSC Testnet BUSD
-            _dexRouter = 0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506; // BNB Chain: PCS V2
-        } else {
-            revert("Chain not configured");
-        }
+        _dexRouter = 0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506; // Sushiswap Router on Arbitrum
+        stablecoinAddress = 0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8; // USDC on Arbitrum
 
         tokenHandler = new TokenHandler();
         STABLECOIN = IERC20(stablecoinAddress);
@@ -1143,20 +1137,20 @@ contract SILVER is ERC20, Ownable {
         lpPair = IDexFactory(dexRouter.factory()).createPair(address(this), address(STABLECOIN));
         _setAutomatedMarketMakerPair(address(lpPair), true);
 
-        uint256 totalSupply = 100 * 1e6 * 1e18;
+        uint256 totalSupply = 1000 * 1e9 * 1e18; // 1,000,000,000,000 * 1e18 decimals
         
-        maxTransactionAmount = totalSupply * 10 / 1000; // 0.5% maxTransactionAmountTxn
-        swapTokensAtAmount = totalSupply * 10 / 10000; // 0.05% swap tokens amount
+        maxTransactionAmount = totalSupply * 5 / 1000; // 0.5% maxTransactionAmountTxn
+        swapTokensAtAmount = totalSupply * 5 / 10000; // 0.05% swap tokens amount
         maxWallet = totalSupply * 5 / 1000; // 0.5% Max wallet
 
-        rewardsBuyFee = 20;
-        operationsBuyFee = 20;
+        rewardsBuyFee = 10;
+        operationsBuyFee = 50;
         liquidityBuyFee = 10;
         totalBuyFees = rewardsBuyFee + operationsBuyFee + liquidityBuyFee;
         
         rewardsSellFee = 10;
-        operationsSellFee = 10;
-        liquiditySellFee = 30;
+        operationsSellFee = 50;
+        liquiditySellFee = 10;
         totalSellFees = rewardsSellFee + operationsSellFee + liquiditySellFee;
 
     	
@@ -1286,7 +1280,7 @@ contract SILVER is ERC20, Ownable {
     }
 
     function setAutomatedMarketMakerPair(address pair, bool value) external onlyOwner {
-        require(pair != lpPair, "The PancakeSwap pair cannot be removed from automatedMarketMakerPairs");
+        require(pair != lpPair, "The SushiSwap pair cannot be removed from automatedMarketMakerPairs");
 
         _setAutomatedMarketMakerPair(pair, value);
     }
