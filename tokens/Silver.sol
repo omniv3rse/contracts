@@ -1001,11 +1001,11 @@ contract TokenHandler is Ownable {
     }
 }
 
-// SILVER by Adv3nture.xyz
+// GOLD by Adv3nture.xyz
 // twitter.com/adv3nturers
 // t.me/adv3nturers
 
-contract SILVER is ERC20, Ownable {
+contract GOLD is ERC20, Ownable {
     using SafeMath for uint256;
 
     IDexRouter public immutable dexRouter;
@@ -1120,7 +1120,7 @@ contract SILVER is ERC20, Ownable {
 
     event CanceledLpWithdrawRequest();
 
-    constructor() ERC20("Silver", "SILVER") {
+    constructor() ERC20("Gold", "GOLD") {
 
         address _dexRouter;
         address stablecoinAddress;
@@ -1143,14 +1143,14 @@ contract SILVER is ERC20, Ownable {
         swapTokensAtAmount = totalSupply * 5 / 10000; // 0.05% swap tokens amount
         maxWallet = totalSupply * 5 / 1000; // 0.5% Max wallet
 
-        rewardsBuyFee = 10;
-        operationsBuyFee = 50;
-        liquidityBuyFee = 10;
+        rewardsBuyFee = 5;
+        operationsBuyFee = 40;
+        liquidityBuyFee = 5;
         totalBuyFees = rewardsBuyFee + operationsBuyFee + liquidityBuyFee;
         
-        rewardsSellFee = 10;
-        operationsSellFee = 50;
-        liquiditySellFee = 10;
+        rewardsSellFee = 5;
+        operationsSellFee = 40;
+        liquiditySellFee = 5;
         totalSellFees = rewardsSellFee + operationsSellFee + liquiditySellFee;
 
     	
